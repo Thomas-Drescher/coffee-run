@@ -25,6 +25,6 @@
     });
 
     formHandler.addInputHandler(Validation.isCompanyEmail);
-    myTruck.printOrders(checkList.addRow.bind(checkList));
+    myTruck.printOrders(checkList.addRow.bind(checkList));  //bind addRow to the CheckList instance
 
 })(window);

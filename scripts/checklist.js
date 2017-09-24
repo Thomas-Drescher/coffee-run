@@ -4,12 +4,14 @@
     var App = window.App || {};
     var $ = window.jQuery;
 
+//Constructor for Checklist object
+
     function CheckList(selector) {
         if (!selector) {
             throw new Error('No selector provided');
         }
 
-        this.$element = $(selector);
+        this.$element = $(selector); //assign jQuery-wrapped collection object to instance variable
         if (this.$element.length === 0) {
             throw new Error('Could not find element with selector: ' + selector);
         }
@@ -22,8 +24,8 @@
             fn(email)
                 .then(function() {
                     this.removeRow(email);
-                }.bind(this));
-        }.bind(this));
+                }.bind(this));   //pass a reference to the Checklist instance to the anonymous function passed to .then
+        }.bind(this)); //pass a reference to the CheckList instance to the anonymous function passed to .on
     };
 
     CheckList.prototype.addRow = function(coffeeOrder) {
