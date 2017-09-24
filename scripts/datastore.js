@@ -3,9 +3,13 @@
     var App = window.App || {};
     var Promise = window.Promise;
 
+    //Constructor for our DataStore object
+
     function DataStore() {
         this.data = {};
     }
+
+//Helper function used to create, resolve, and return a promise
 
     function promiseResolvedWith(value) {
         var promise = new Promise(function(resolve, reject) {
@@ -32,6 +36,7 @@
         return promiseResolvedWith(null);
     };
 
+// Attach DataStore to the App object
     App.DataStore = DataStore;
     window.App = App;
 })(window);
