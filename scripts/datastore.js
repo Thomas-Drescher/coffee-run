@@ -3,7 +3,7 @@
     var App = window.App || {};
     var Promise = window.Promise;
 
-    //Constructor for our DataStore object
+    //Constructor for DataStore object
 
     function DataStore() {
         this.data = {};
