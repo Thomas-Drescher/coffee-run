@@ -3,11 +3,13 @@
     var App = window.App || {};
     var $ = window.jQuery;
 
+//Constructor for FormHandler object
+
     function FormHandler(selector) {
         if (!selector) {
             throw new Error('No selector provided');
         }
-        this.$formElement = $(selector);
+        this.$formElement = $(selector);  // assign jQuery-wrapped collection  object to instance variable
         if (this.$formElement.length === 0) {
             throw new Error('Could not find element with selector ' + selector);
         }
@@ -19,7 +21,7 @@
             event.preventDefault();
 
             var data = {};
-            $(this).serializeArray().forEach(function(item) {
+            $(this).serializeArray().forEach(function(item) {  //$(this) is a jQuery-wrapped formElement, which allows us to call serializeArray
                 data[item.name] = item.value;
                 console.log(item.name + ' is ' + item.value);
             });
@@ -28,7 +30,7 @@
                 .then(function() {
                     this.reset();
                     this.elements[0].focus();
-                }.bind(this));
+                }.bind(this)); //pass a reference to the FormHandler instance to the anonymous function passed to .then
 
         });
     };
