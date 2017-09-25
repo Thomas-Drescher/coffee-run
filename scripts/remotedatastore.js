@@ -3,6 +3,7 @@
     var App = window.App || {};
     var $ = window.jQuery;
 
+//Constructor for RemoteDataStore object
     function RemoteDataStore(url) {
         if (!url) {
             throw new Error('No remote URL supplied.');

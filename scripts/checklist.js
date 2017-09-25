@@ -18,6 +18,7 @@
     }
 
     CheckList.prototype.addClickHandler = function(fn) {
+      //use the event delegation pattern to filter out click events not on input elements
         this.$element.on('click', 'input', function(event) {
             var email = event.target.value;
 
@@ -41,6 +42,8 @@
     CheckList.prototype.removeRow = function(email) {
         this.$element.find('[value ="' + email + '"]').closest('[data-coffee-order="checkbox"]').remove();
     };
+
+//Constructor for Row objects
 
     function Row(coffeeOrder) {
         var $div = $('<div></div>', {

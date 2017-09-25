@@ -37,6 +37,8 @@
 
     FormHandler.prototype.addInputHandler = function(fn) {
         console.log('Setting input handler for form');
+
+        //Use the event delegation pattern to filter out events created by anything but the [name="emaillAdress"] field
         this.$formElement.on('input', '[name="emailAddress"]', function(event) {
             var emailAddress = event.target.value;
             var message = '';
